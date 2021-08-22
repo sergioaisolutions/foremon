@@ -94,6 +94,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+foremon_environment/
 
 # Spyder project settings
 .spyderproject
