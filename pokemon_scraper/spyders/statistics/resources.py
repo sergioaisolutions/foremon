@@ -13,3 +13,4 @@ accept_cookies_css_selector = 'button.ncmp__btn:nth-child(2)'
 
 dropdown_last_element_css_selector = '#main > div.section.poke-select-container.single > div:nth-child(1) > select > option:nth-child(1153)'
 dropdown_css_selector = 'div.poke:nth-child(1) > select:nth-child(4)'
+search_field_css_selector = '#main > div.section.poke-select-container.single > div:nth-child(1) > input'
