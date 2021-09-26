@@ -28,13 +28,19 @@ def pokemon_names(driver, css_selector_to_wait, css_selector_dropdown):
     return pokemons_list
 
 def pokemon_statistics(driver, css_selector_search_engine, pokemon_names,
-                       cp_css_selector, atk_css_selector, def_css_selector):
+                       cp_css_selector, atk_css_selector, def_css_selector,
+                       stm_css_selector, ovr_css_selector):
 
     search_engine = driver.find_element_by_css_selector(css_selector_search_engine)
 
     for pokemon_name in pokemon_names:
+
         search_engine.send_keys(pokemon_name)
-        combat_points = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, cp_css_selector)))
-        attack = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, atk_css_selector)))
-        defense = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, def_css_selector)))
+
+        combat_points = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, cp_css_selector))).get_attribute('innerHTML')
+        attack = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, atk_css_selector))).get_attribute('innerHTML')
+        defense = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, def_css_selector))).get_attribute('innerHTML')
+        stamina = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, stm_css_selector))).get_attribute('innerHTML')
+        overall = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ovr_css_selector))).get_attribute('innerHTML')
+
         search_engine.clear()
